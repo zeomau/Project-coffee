@@ -1,0 +1,102 @@
+user login 
+user register
+user forgot password
+user authentecation 
+user view product
+user ordering 
+user order item
+user order qrcode for cashier 
+user order change item
+user add order ite
+user setting 
+user 
+
+admin login
+admin setting 
+admin setup account for cashier
+admin worker's time
+admin authentecation
+admin forgot account send to email
+admin view customer item 
+admin view item
+admin view sell
+admin edit item
+admin receive order send on gmail
+
+cashier login
+cashier order customer 
+cashier edit, delete update customer item
+cashier scan qrcode order if cashier pay
+cashier print order send to gmail of admin
+
+
+database coffeee
+
+table products
+id
+name
+
+
+table customer
+id
+name 
+username
+password
+number
+gmail
+
+
+table order
+order_id
+customer_id
+customer_name
+order_name
+
+table admin
+id
+name
+gmail
+number
+backup gmail
+
+
+
+
+
+JWT token and Bcrypt
+
+Item Coffee and Cake
+
+🧊 Iced Coffee — 10
+1. Iced Americano
+2. Iced Latte
+3. Iced Vanilla Latte
+4. Iced Caramel Macchiato
+5. Iced Mocha
+6. Iced Spanish Latte
+7. Iced Hazelnut Latte
+8. Iced Matcha Coffee
+9. Iced White Mocha
+10. Iced Caramel Latte
+☕ Hot Coffee — 10
+1. Hot Americano
+2. Hot Latte
+3. Vanilla Latte
+4. Caramel Macchiato
+5. Hot Mocha
+6. Spanish Latte
+7. Hazelnut Latte
+8. Cappuccino
+9. Café au Lait
+10. Flat White
+🍰 Cakes — 10
+1. Chocolate Cake
+2. Strawberry Shortcake
+3. Cheesecake
+4. Red Velvet Cake
+5. Carrot Cake
+6. Tiramisu Cake
+7. Blueberry Cheesecake
+8. Matcha Cake
+9. Chocolate Fudge Cake
+10. Ube Cake

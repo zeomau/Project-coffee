@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="../css/user_css/user_order.css"> -->
+
+    <title>
+        <%= orders %>
+    </title>
+
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            Coffee Time
+            <span>Keep Safe!</span>
+        </div>
+        <a href="/" class="back-home">
+            ← Back to Home
+        </a>
+        <button class="cart-button" onclick="openCart()">
+            🛒 Cart
+            <span id="cartCount">0</span>
+        </button>
+    </nav>
+
+    <main>
+        <section class="menu-header">
+            <p class="eyebrow">
+                COFFEE TIME ONLINE ORDERING
+            </p>
+            <h1>
+                What would you<br>
+                <span>like today?</span>
+            </h1>
+            <p>
+                Fresh coffee, smooth matcha, and delicious cakes
+                prepared just for you.
+            </p>
+        </section>
+        <div class="category-buttons">
+            <button class="category active" onclick="showCategory('iced')">
+                🧊 Iced Coffee
+            </button>
+            <button class="category" onclick="showCategory('hot')">
+                ☕ Hot Coffee
+            </button>
+            <button class="category" onclick="showCategory('cakes')">
+                🍰 Cakes
+            </button>
+        </div>
+        <section class="products" id="products">
+        </section>
+    </main>
+
+    <div class="cart-overlay" id="cartOverlay">
+        <div class="cart">
+            <div class="cart-header">
+                <div>
+                    <p class="cart-small">YOUR ORDER</p>
+                    <h2>Shopping Cart</h2>
+                </div>
+                <button class="close" onclick="closeCart()">
+                    ×
+                </button>
+            </div>
+            <div id="cartItems" class="cart-items">
+                <div class="empty-cart">
+                    <div>🛒</div>
+                    <h3>Your cart is empty</h3>
+                    <p>Add something delicious from our menu.</p>
+                </div>
+            </div>
+            <div class="cart-bottom">
+                <div class="total-row">
+                    <span>Subtotal</span>
+                    <strong id="cartTotal">
+                        ₱0.00
+                    </strong>
+                </div>
+                <button class="checkout-btn" onclick="openCheckout()">
+                    Proceed to Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="checkout-overlay" id="checkoutOverlay">
+        <div class="checkout">
+            <div class="checkout-header">
+                <div>
+                    <p class="cart-small">CHECKOUT</p>
+                    <h2>Complete Your Order</h2>
+                </div>
+                <button class="close" onclick="closeCheckout()">
+                    ×
+                </button>
+            </div>
+            <form id="checkoutForm">
+                <div class="form-group">
+                    <label>
+                        Customer Name
+                    </label>
+                    <input type="text" id="customerName" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label>
+                        Contact Number
+                    </label>
+                    <input type="tel" id="customerPhone" placeholder="09XXXXXXXXX" required>
+                </div>
+                <div class="form-group">
+                    <label>
+                        Order Type
+                    </label>
+                    <div class="order-types">
+                        <label class="order-type">
+                            <input type="radio" name="orderType" value="Dine In" checked>
+                            <span>
+                                🍽️
+                                <b>Dine In</b>
+                                <small>Eat at the café</small>
+                            </span>
+                        </label>
+                        <label class="order-type">
+                            <input type="radio" name="orderType" value="Take Out">
+                            <span>
+                                🥡
+                                <b>Take Out</b>
+                                <small>Take your order</small>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>
+                        Special Request
+                    </label>
+                    <textarea id="specialRequest" placeholder="Optional request..."></textarea>
+                </div>
+                <div class="checkout-summary">
+                    <div>
+                        <span>Total Items</span>
+                        <strong id="checkoutItems">
+                            0
+                        </strong>
+                    </div>
+                    <div class="checkout-total">
+                        <span>Total</span>
+                        <strong id="checkoutTotal">
+                            ₱0.00
+                        </strong>
+                    </div>
+                </div>
+                <button type="submit" class="place-order">
+                    Place Order
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="success-overlay" id="successOverlay">
+        <div class="success-box">
+            <div class="success-icon">
+                ✓
+            </div>
+            <h2>
+                Order Successful!
+            </h2>
+            <p>
+                Thank you for ordering from Coffee Time.
+                Your order has been received.
+            </p>
+            <div class="order-number">
+                Order #<span id="orderNumber">QR-code # 12345167</span>
+            </div>
+            <button onclick="finishOrder()">
+                Continue Shopping
+            </button>
+        </div>
+    </div>
+
+    <script src="/components/ordering.js"></script>
+</body>
+
+</html>

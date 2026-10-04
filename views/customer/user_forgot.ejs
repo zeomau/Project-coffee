@@ -4,33 +4,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="/css/user_css/user_forgot.css"> -->
+    <link rel="stylesheet" href="/css/user_css/user_forgot.css">
     <title>
         <%= forgotpassword %>
     </title>
-
 </head>
 
 <body>
+
     <div class="container">
-        <h2>Forgot Password?</h2>
-        <p class="description">
-            Enter your email address and we'll send you
-            a link to reset your password.
-        </p>
-        <form>
-            <div class="input-group">
-                <label>Email</label>
-                <input type="email" placeholder="Enter your email" required>
-            </div>
-            <button type="submit">
-                Send Reset Link
-            </button>
-        </form>
-        <div class="back">
-            <a href="/user/login">← Back to Login</a>
+
+        <div class="forgot-forms" id="forgotForms">
+
+            <section class="forgot-step">
+
+                <h2>Forgot Password?</h2>
+
+                <p class="description">
+                    Enter your email address and we'll send you
+                    a link to reset your password.
+                </p>
+
+                <form onsubmit="showOTP(event)">
+
+                    <div class="input-group">
+                        <label>Email</label>
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
+
+                    <button type="submit">
+                        Send Reset Link
+                    </button>
+
+                </form>
+
+                <div class="back">
+                    <a href="/user/login">Back to Login</a>
+                </div>
+
+            </section>
+
+
+            <section class="otp-step">
+
+                <h2>Enter OTP</h2>
+
+                <p class="description">
+                    Enter the OTP we sent to your email.
+                </p>
+
+                <form onsubmit="confirmOTP(event)">
+
+                    <div class="input-group">
+                        <label>OTP Code</label>
+
+                        <input type="text" id="code" name="qrcode" placeholder="Enter OTP code" maxlength="6" required>
+                    </div>
+
+                    <button type="submit">
+                        Confirm
+                    </button>
+
+                </form>
+
+                <div class="back">
+                    <a href="#" onclick="showEmail(event)">
+                        Back
+                    </a>
+                </div>
+
+            </section>
+
         </div>
+
     </div>
+
+    <script>
+        function showOTP(event) {
+            event.preventDefault();
+
+            document.getElementById("forgotForms").style.transform =
+                "translateX(-50%)";
+        }
+
+        function showEmail(event) {
+            event.preventDefault();
+
+            document.getElementById("forgotForms").style.transform =
+                "translateX(0)";
+        }
+
+        function confirmOTP(event) {
+            event.preventDefault();
+
+            alert("OTP confirmed!");
+        }
+    </script>
+
 </body>
 
 </html>

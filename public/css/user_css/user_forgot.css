@@ -2,89 +2,198 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: "Inter", "Segoe UI", Arial, sans-serif
 }
 
 :root {
-    --background: #F3F6ED;
+    --coffee-dark: #3B2416;
+    --coffee-brown: #5A3825;
+    --coffee: #7B4B2A;
+    --coffee-light: #B9825B;
+    --caramel: #C9956B;
+    --background: #F5EDE3;
+    --cream: #FFF8EE;
+    --text: #3B2416;
+    --muted: #806F61;
+    --border: #DDCBB9;
+    --white: #FFFFFF
 }
 
 body {
     min-height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
-    background: var(--background);
+    justify-content: center;
+    padding: 30px 15px;
+    background: radial-gradient(circle at top left, rgba(201, 149, 107, .25), transparent 35%), radial-gradient(circle at bottom right, rgba(123, 75, 42, .18), transparent 35%), var(--background)
 }
 
 .container {
-    width: 400px;
-    background: #FFFFFF;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(23, 59, 42, 0.2);
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    background: var(--cream);
+    border: 1px solid rgba(221, 203, 185, .7);
+    border-radius: 24px;
+    box-shadow: 0 25px 60px rgba(59, 36, 22, .15), 0 8px 20px rgba(59, 36, 22, .08);
+    overflow: hidden
 }
 
-h2 {
-    text-align: center;
-    color: #173B2A;
-    margin-bottom: 15px;
+.container::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    top: -90px;
+    right: -90px;
+    border-radius: 50%;
+    background: rgba(185, 130, 91, .12)
+}
+
+.container::after {
+    content: "";
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    bottom: -70px;
+    left: -70px;
+    border-radius: 50%;
+    background: rgba(123, 75, 42, .08)
+}
+
+.forgot-forms {
+    width: 200%;
+    display: flex;
+    transition: transform .55s cubic-bezier(.4, 0, .2, 1)
+}
+
+.forgot-step,
+.otp-step {
+    width: 50%;
+    min-width: 50%;
+    padding: 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+}
+
+.forgot-step h2,
+.otp-step h2 {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 10px;
+    color: var(--coffee-dark);
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -.5px
 }
 
 .description {
-    text-align: center;
-    color: #315C3C;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 30px;
+    color: var(--muted);
     font-size: 14px;
-    line-height: 1.5;
-    margin-bottom: 25px;
+    line-height: 1.7
+}
+
+form {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column
 }
 
 .input-group {
-    margin-bottom: 20px;
+    margin-bottom: 20px
 }
 
-label {
+.input-group label {
     display: block;
-    margin-bottom: 7px;
-    color: #315C3C;
-    font-size: 14px;
+    margin-bottom: 8px;
+    color: var(--coffee-brown);
+    font-size: 13px;
+    font-weight: 600
 }
 
-input {
+.input-group input {
     width: 100%;
-    padding: 12px;
-    border: 1px solid #C5D6A3;
-    border-radius: 7px;
+    height: 48px;
+    padding: 0 15px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
     outline: none;
+    background: var(--white);
+    color: var(--text);
+    font-size: 14px;
+    transition: .2s ease
 }
 
-input:focus {
-    border-color: #789B56;
+.input-group input::placeholder {
+    color: #A99A8E
 }
 
-button {
+.input-group input:hover {
+    border-color: var(--coffee-light)
+}
+
+.input-group input:focus {
+    border-color: var(--coffee);
+    box-shadow: 0 0 0 4px rgba(123, 75, 42, .13)
+}
+
+form>button {
     width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 7px;
-    background: #315C3C;
-    color: #FFFFFF;
-    font-size: 16px;
+    height: 48px;
+    border: 0;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #7B4B2A, #3B2416);
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 600;
     cursor: pointer;
+    box-shadow: 0 6px 15px rgba(59, 36, 22, .22);
+    transition: .2s ease
 }
 
-button:hover {
-    background: #789B56;
+form>button:hover {
+    transform: translateY(-1px);
+    background: linear-gradient(135deg, #B9825B, #5A3825);
+    box-shadow: 0 9px 20px rgba(90, 56, 37, .28)
 }
 
 .back {
+    position: relative;
+    z-index: 2;
     text-align: center;
-    margin-top: 20px;
-    font-size: 14px;
+    margin-top: 22px
 }
 
 .back a {
-    color: #315C3C;
+    color: var(--coffee);
     text-decoration: none;
-    font-weight: bold;
+    font-size: 13px;
+    font-weight: 600
+}
+
+.back a:hover {
+    color: var(--coffee-dark);
+    text-decoration: underline
+}
+
+.otp-step {
+    background: var(--cream)
+}
+
+@media(max-width:480px) {
+
+    .forgot-step,
+    .otp-step {
+        padding: 35px 24px
+    }
+
+    .forgot-step h2,
+    .otp-step h2 {
+        font-size: 26px
+    }
 }

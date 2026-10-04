@@ -1,0 +1,41 @@
+DATABASE coffeedb
+
+Table's
+admin
+	admin_id
+    owner
+    admin_username
+    admin_password
+item
+    item_id
+    item_name
+    item price
+    item_image
+order
+    order_id
+    user_id
+    item_id
+    item_name
+    item_price
+    user_name
+    user_qrcode
+    user_description
+user
+    user_id
+    user_name
+    username
+    password
+    user_number
+    user_gmail
+
+
+admin
+    login and register same on the user
+    forgot password and otp
+    create account
+
+    dashboard
+    view and edit the item
+    view order
+    view account user
+    inventory

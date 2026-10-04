@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="/css/user_css/user_login.css"> -->
+    <link rel="stylesheet" href="/css/user_css/user_login.css">
 
     <title>
         <%= customer %> | & Register
@@ -22,198 +22,108 @@
                         <%= customer %>
                     </span>
                 </div>
-                <h1>
-                    Coffee Time <span>keep safe!</span>
-                </h1>
-                <p>
-                    Your gonna love our coffee and matcha, made for your everyday moments.
-                </p>
+                <h1> Coffee Time <span>keep safe!</span> </h1>
+                <p> Your gonna love our coffee and matcha, made for your everyday moments. </p>
             </div>
             <div class="features">
                 <div class="feature">
-                    <span class="feature-icon">
-                        ✓
-                    </span>
-                    <span>
-                        Simple and secure authentication
-                    </span>
+                    <span class="feature-icon"> ✓ </span>
+                    <span> Simple and secure authentication </span>
                 </div>
                 <div class="feature">
-                    <span class="feature-icon">
-                        ✓
-                    </span>
-                    <span>
-                        Manage your account easily
-                    </span>
+                    <span class="feature-icon"> ✓ </span>
+                    <span> Manage your account easily </span>
                 </div>
                 <div class="feature">
-                    <span class="feature-icon">
-                        ✓
-                    </span>
-                    <span>
-                        View your order history
-                    </span>
+                    <span class="feature-icon"> ✓ </span>
+                    <span> View your order history </span>
                 </div>
             </div>
         </aside>
         <main class="form-panel">
             <div class="forms" id="forms">
+
+
+                <!-- login form -->
                 <section class="form-box login-form">
                     <div class="form-header">
-                        <h2>
-                            Welcome back
-                        </h2>
-                        <p>
-                            Sign in to continue to your account.
-                        </p>
+                        <h2>Welcome back</h2>
+                        <p>Sign in to continue to your account.</p>
                     </div>
-                    <form action="/user/login" method="POST">
-                        <div class="input-group">
-                            <label for="loginEmail">
-                                Email address
-                            </label>
-                            <div class="input-wrapper">
-                                <span class="input-icon">
-                                    ✉
-                                </span>
-                                <input id="loginEmail" type="email" name="email" placeholder="@gmail.com"
-                                    autocomplete="email" required>
+                    <section class="login-form">
+                        <form action="/user/login" method="POST">
+
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" placeholder="Enter your password"
+                                required>
+                            <div class="login-options">
+                                <label><input type="checkbox" name="remember"> Remember me </label>
+                                <a href="/user/forgot">Forgot password?</a>
                             </div>
-                        </div>
-                        <div class="input-group">
-                            <label for="loginPassword">
-                                Password
-                            </label>
-                            <div class="input-wrapper">
-                                <span class="input-icon">
-                                    ●
-                                </span>
-                                <input id="loginPassword" type="password" name="password" placeholder="Enter your password" autocomplete="current-password" required>
-                                <button type="button" class="password-toggle" onclick="togglePassword(
-                                        'loginPassword',
-                                        this
-                                    )">
-                                    ◉
-                                </button>
-                            </div>
-                        </div>
-                        <div class="form-options">
-                            <label class="remember">
-                                <input type="checkbox" name="remember">
-                                <span>
-                                    Remember me
-                                </span>
-                            </label>
-                            <a href="/user/forgot" class="link">
-                                Forgot password?
-                            </a>
-                        </div>
-                        <button type="submit" class="submit-btn">
-                            <a href="/user/orders">Sign in</a>
-                        </button>
-                    </form>
+                            <button type="submit">Sign In</button>
+                        </form>
+                    </section>
                     <div class="divider">
-                        <span>OR</span>
+                        <span> OR </span>
                     </div>
-                    <div class="switch-text">
+                    <p class="switch-text">
                         Don't have an account?
-                        <a class="link" onclick="showRegister()">
-                            Create an account
-                        </a>
-                    </div>
+                        <a href="#" class="link" onclick="showRegister(event)">Create an account</a>
+                    </p>
                 </section>
-                <section class="form-box register-form">
-                    <div class="form-header">
-                        <h2>
-                            Create account
-                        </h2>
-                        <p>
-                            Create your account to get started.
-                        </p>
-                    </div>
-                    <form action="/user/register" method="POST" id="registerForm">
-                        <div class="input-group">
-                            <label for="fullName">
-                                Full name
-                            </label>
-                            <div class="input-wrapper">
-                                <span class="input-icon">
-                                    ●
-                                </span>
-                                <input id="fullName" type="text" name="name" placeholder="janicole" autocomplete="name"
-                                    required>
-                            </div>
-                        </div>
-                        <div class="input-group">
-                            <label for="registerEmail">
-                                Email address
-                            </label>
-                            <div class="input-wrapper">
-                                <span class="input-icon">
-                                    ✉
-                                </span>
-                                <input id="registerEmail" type="email" name="email" placeholder="janicole@gmail.com"
-                                    autocomplete="email" required>
-                            </div>
-                        </div>
-                        <div class="input-group">
-                            <label for="registerPassword">
-                                Password
-                            </label>
-                            <div class="input-wrapper">
-                                <span class="input-icon">
-                                    ●
-                                </span>
-                                <input id="registerPassword" type="password" name="password"
-                                    placeholder="Create a password" autocomplete="new-password" minlength="8" required>
-                                <button type="button" class="password-toggle" onclick="togglePassword(
-                                        'registerPassword',
-                                        this
-                                    )">
-                                    ◉
-                                </button>
-                            </div>
-                        </div>
-                        <div class="input-group">
-                            <label for="confirmPassword">
-                                Confirm password
-                            </label>
-                            <div class="input-wrapper">
-                                <span class="input-icon">
-                                    ●
-                                </span>
-                                <input id="confirmPassword" type="password" name="confirmPassword"
-                                    placeholder="Confirm your password" autocomplete="new-password" minlength="8"
-                                    required>
-                                <button type="button" class="password-toggle" onclick="togglePassword(
-                                        'confirmPassword',
-                                        this
-                                    )">
-                                    ◉
-                                </button>
-                            </div>
-                            <span class="error-message" id="passwordError">
-                                Passwords do not match.
-                            </span>
-                        </div>
-                        <button type="submit" class="submit-btn">
-                            Create account
-                        </button>
+
+
+
+                <!-- register form -->
+                <section class="register-form">
+
+                    <h2>Create Account</h2>
+                    <p>Create your account to get started.</p>
+
+                    <form action="/user/register" method="POST">
+
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="name" placeholder="Enter your full name" required>
+
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Create a password"
+                            minlength="8" required>
+
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword"
+                            placeholder="Confirm your password" minlength="8" required>
+
+                        <button type="submit">Create Account</button>
                     </form>
-                    <div class="divider">
-                        <span>OR</span>
-                    </div>
-                    <div class="switch-text">
+                    <p class="switch-text">
                         Already have an account?
-                        <a class="link" onclick="showLogin()">
-                            Sign in
-                        </a>
-                    </div>
+                        <a href="#" class="link" onclick="showLogin(event)">Sign In</a>
+                    </p>
                 </section>
             </div>
         </main>
     </div>
-    <script src="/components/login.js"></script>
 </body>
+<script>
+    function showRegister(event) {
+        event.preventDefault();
+
+        document.getElementById("forms").style.transform =
+            "translateX(-50%)";
+    }
+
+    function showLogin(event) {
+        event.preventDefault();
+
+        document.getElementById("forms").style.transform =
+            "translateX(0)";
+    }
+</script>
 
 </html>
